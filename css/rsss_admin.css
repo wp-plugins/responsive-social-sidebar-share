@@ -1,0 +1,11 @@
+/*-- RSSS Admin Style
+-------------------------------*/
+.rsssicon{background:url('../images/page_icon.png') no-repeat;margin-right:0;}
+#rsss_block .rsss_iframe{left: 770px;position: fixed;top: 90px;}
+#rsss_block{width:580px;}
+#rsss_block .rsss_tbl{}
+#rsss_block .rsss_tbl td{padding:5px;}
+#rsss_block .rsss_tbl td:first-child{width:170px;font-weight: bold;}
+#rsss_block  input[name="rsss_submit"]{font-weight:normal;}
+#rsss_block .rsss_tbl td.rsss_note{background: none repeat scroll 0 0 #137527;border-radius: 2px 2px 2px 2px; color: #FFFFFF; line-height: 24px; padding: 10px;}
+#rsss_block .rsss_savemsg{margin: 10px 0;background: none repeat scroll 0 0 #EFEB64; border: 1px solid #CCC73F; border-radius: 3px 3px 3px 3px; font-size: 14px; font-weight: bold; padding: 10px;}
