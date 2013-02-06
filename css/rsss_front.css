@@ -14,6 +14,7 @@
 #rsss_sidebar_hid .ss_sidebar_button{float:left; margin:0 5px; padding-right:10px; margin-left:0; line-height: 20px;}
 #rsss_sidebar_hid .ss_sidebar_twitter{margin-right:-14px;}
 #rsss_sidebar_hid .ss_sidebar_facebooklike{margin-right:-16px;}
+a.rsss_ficon{background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #CACACA; font-size: 8px; font-weight: bold; margin: 5px auto 0; outline: medium none; padding: 1px; text-decoration: none; width: 36px; } 
 
 /*-- Responsive Structure
 --------------------------------------------*/

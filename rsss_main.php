@@ -4,7 +4,7 @@ Plugin Name: Responsive Social-Share Sidebar
 Plugin URI: http://www.wpfruits.com
 Description: This plugin adds social share sidebar to WordPress post and page.
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.0.0
+Version: 1.1.0
 Author URI: http://www.wpfruits.com
 */
 //--------------------------------------------------------------------------
@@ -21,6 +21,7 @@ function rsss_defaults(){
 	    'show_twitter_icon' => 1,
 	    'show_facebook_share' => 1,
 	    'show_facebook_like' => 1,
+		'show_google_plus' => 1,
 	    'show_digg_icon' => 1,
 	    'show_stumble_icon' => 1,
 	    'show_pinterest_icon' => 1,
@@ -29,33 +30,47 @@ function rsss_defaults(){
 return $default;
 }
 
-// Runs when plugin is activated and creates new database field
-register_activation_hook(__FILE__,'rsss_plugin_install');
+add_action('admin_init', 'rsss_main_init');
+
+function rsss_main_init(){
+	register_setting('rsss_plugin_options', 'rsss_options', 'rsss_validate_options');
+}
+
 function rsss_plugin_install() {
     add_option('rsss_options', rsss_defaults());
 }
+// Runs when plugin is activated and creates new database field
+register_activation_hook(__FILE__,'rsss_plugin_install');
 
-// update the rsss options
-if(isset($_POST['rsss_submit'])){
-	update_option('rsss_options', rsss_optionUpdates());
-	$rsss_savemsg='<div class="rsss_savemsg">Settings Saved.</div>';
+function rsss_validate_options($rsss_input)
+{
+	if(!isset($rsss_input['showonpage'])){$rsss_input['showonpage']=0;}
+	if(!isset($rsss_input['showonpost'])){$rsss_input['showonpost']=0;}
+	if(!isset($rsss_input['show_twitter_icon'])){$rsss_input['show_twitter_icon']=0;}
+	if(!isset($rsss_input['show_facebook_share'])){$rsss_input['show_facebook_share']=0;}
+	if(!isset($rsss_input['show_facebook_like'])){$rsss_input['show_facebook_like']=0;}
+	if(!isset($rsss_input['show_google_plus'])){$rsss_input['show_google_plus']=0;}
+	if(!isset($rsss_input['show_digg_icon'])){$rsss_input['show_digg_icon']=0;}
+	if(!isset($rsss_input['show_stumble_icon'])){$rsss_input['show_stumble_icon']=0;}
+	if(!isset($rsss_input['show_pinterest_icon'])){$rsss_input['show_pinterest_icon']=0;}
+	if(!isset($rsss_input['show_email_icon'])){$rsss_input['show_email_icon']=0;}
+	return $rsss_input;
 }
 
-function rsss_optionUpdates() {
-	$options = $_POST['rsss_options'];
-	    $update_val = array(
-		'showonpage' => $options['showonpage'],
-		'showonpost' => $options['showonpost'],
-        'showonposition' => $options['showonposition'],
-	    'show_twitter_icon' => $options['show_twitter_icon'],
-	    'show_facebook_share' => $options['show_facebook_share'],
-	    'show_facebook_like' => $options['show_facebook_like'],
-	    'show_digg_icon' => $options['show_digg_icon'],
-	    'show_stumble_icon' => $options['show_stumble_icon'],
-	    'show_pinterest_icon' => $options['show_pinterest_icon'],
-	    'show_email_icon' => $options['show_email_icon']
-    );
-return $update_val;
+add_action('init','rsss_addVersion');
+function rsss_addVersion()
+{
+	$rsss_version = get_option('rsss_version'); 
+	if(!$rsss_version)
+	add_option('rsss_version',rsss_get_version());
+	else{
+	update_option('rsss_version',rsss_get_version());
+	}
+}
+
+// update the rsss options
+if(isset($_GET['settings-updated']) && $_GET['settings-updated']==true){
+	$rsss_savemsg='<div class="rsss_savemsg">Settings Saved.</div>';
 }
 
 // get rsss version

@@ -4,7 +4,7 @@ Donate link: http://www.wpfruits.com
 Tags: sidebar social icons, share sidebar, floating sidebar share icons, responsive share icons, floating share bar
 Requires at least: 2.8
 Tested up to: 3.5
-Stable tag: 2.0.3
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ You can disable any of those options in the back end.
 You can also decide if you want it for pages or posts or both.
 Allows you set the default position under the title if you want to. 
 Short code option also available if you want to give those options to the users wherever you want them in your content. 
+Recently added the google plus feature too. 
 
 
 == Installation ==
@@ -37,6 +38,8 @@ Short code option also available if you want to give those options to the users 
 
 For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/wp-sidebar-social-share/
 
+This is a plugin from http://wpfruits.com/?ref=sssl
+
 == Frequently asked questions ==
 
 
@@ -46,12 +49,15 @@ For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/wp-si
 
 
 == Changelog ==
+Version 1.1.0
+
+Added Google Plus Icon option in admin panel.
 
 
 
 == Upgrade notice ==
 
-
+We have updated the plugin to include google plus too. Update now!!!
 
 
 == Arbitrary section 1 ==

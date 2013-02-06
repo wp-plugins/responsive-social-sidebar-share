@@ -16,8 +16,9 @@
 				<div class="handlediv" title="Click to toggle"><br/></div>
 				<h3 class="hndle"><span><?php _e('General Settings :', 'rsss'); ?></span></h3>
 				<div class="inside">
+					<form name="rsss_adminform" method="post" action="options.php">
+					<?php settings_fields('rsss_plugin_options'); ?>
 					<?php $options = get_option('rsss_options'); ?>
-					<form name="rsss_adminform" method="post" action="">
 						<table class="rsss_tbl">
 							<tr>
 								<td><label for="showonpage"><?php _e('Show on Page','rsss'); ?></label></td>
@@ -51,6 +52,10 @@
 								<td><input type="checkbox" id="show_facebook_like" name="rsss_options[show_facebook_like]" value="1" <?php if($options['show_facebook_like']){ echo "checked=checked"; } ?> /></td>
 							</tr>
 							<tr>
+								<td><label for="show_google_plus"><?php _e('Show Google Pluse Icon','rsss'); ?></label></td>
+								<td><input type="checkbox" id="show_google_plus" name="rsss_options[show_google_plus]" value="1" <?php if($options['show_google_plus']){ echo "checked=checked"; } ?> /></td>
+							</tr>
+							<tr>
 								<td><label for="show_digg_icon"><?php _e('Show Digg Icon','rsss'); ?></label></td>
 								<td><input type="checkbox" id="show_digg_icon" name="rsss_options[show_digg_icon]" value="1" <?php if($options['show_digg_icon']){ echo "checked=checked"; } ?> /></td>
 							</tr>
@@ -66,6 +71,7 @@
 								<td><label for="show_email_icon"><?php _e('Show Email Icon','rsss'); ?></label></td>
 								<td><input type="checkbox" id="show_email_icon" name="rsss_options[show_email_icon]" value="1" <?php if($options['show_email_icon']){ echo "checked=checked"; } ?> /></td>
 							</tr>
+							<input type="hidden" name="rsss_saveOptions" value="rsss_save" />
 							<tr><td colspan="2" height="5"></td></tr>
 							<tr><td><input type="submit" name="rsss_submit" class="button-primary button" value="Save Settings"/></td></tr>
 						</table>

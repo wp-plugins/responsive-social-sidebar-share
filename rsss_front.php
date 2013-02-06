@@ -45,6 +45,8 @@ function show_responsive_social_share_sidebar(){
 	global $post;
 	$options = get_option('rsss_options');
 	
+	$from_this = "http://www.wpfruits.com/downloads/wp-plugins/wp-sidebar-social-share/?rsss_refs=".$_SERVER['SERVER_NAME'];
+	
 	$tw = $options['show_twitter_icon'];
 	$fb = $options['show_facebook_share'];
 	$fbl= $options['show_facebook_like'];
@@ -80,6 +82,14 @@ function show_responsive_social_share_sidebar(){
 			</iframe></div>
 			<div class="clear"></div>';
 		}
+		if(!empty($fbl))
+		{
+		$dtr.='<div class="ss_sidebar_button">
+			<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+			<g:plusone size="tall" href="'.urlencode(get_permalink()).'"></g:plusone>
+			</div>
+			<div class="clear"></div>';
+		}
 		if(!empty($dg))
 		{
 		$dtr.='<div class="ss_sidebar_button">
@@ -111,6 +121,8 @@ function show_responsive_social_share_sidebar(){
 		$dtr.='<div class="ss_sidebar_button ss_share_button"><a href="mailto:?subject='.get_permalink().'" >Email</a></div>
 			<div class="clear"></div>';
 		}
+		$dtr.='<a style="display:block !important;" target="_blank" class="rsss_ficon" href="'.$from_this.'">RSSS</a>';
+		
 		$dtr.='
 		<div class="clear"></div>';
 	$dtr.='</div>';
@@ -145,6 +157,13 @@ function show_responsive_social_share_sidebar(){
 	$dtr.='<span class="ss_sidebar_button ss_sidebar_facebooklike">
 		<iframe src="http://www.facebook.com/plugins/like.php?href='.urlencode(get_permalink()).'&amp;layout=button_count&amp;show_faces=false&amp;width=60&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden;width:85px;height:21px;" allowTransparency="true">
 		</iframe></span>';
+	}
+	if(!empty($fbl))
+	{
+	$dtr.='<span class="ss_sidebar_button ss_sidebar_facebooklike">
+			<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+			<g:plusone size="medium" href="'.urlencode(get_permalink()).'"></g:plusone>
+		</span>';
 	}
 	if(!empty($dg))
 	{
@@ -225,6 +244,13 @@ function responsive_social_share_sidebar()
 				<iframe src="http://www.facebook.com/plugins/like.php?href='.urlencode(get_permalink()).'&amp;layout=button_count&amp;show_faces=false&amp;width=60&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden;width:85px;height:21px;" allowTransparency="true">
 				</iframe></span>';
 			}
+			if(!empty($fbl))
+			{
+			$dtr.='<span class="ss_sidebar_button ss_sidebar_facebooklike">
+					<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+					<g:plusone size="medium" href="'.urlencode(get_permalink()).'"></g:plusone>
+				</span>';
+			}
 			if(!empty($dg))
 			{
 			$dtr.='<span class="ss_sidebar_button">
@@ -261,5 +287,4 @@ function responsive_social_share_sidebar()
 	}	
 	return $dtr;
 }
-
 ?>
