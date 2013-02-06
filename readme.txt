@@ -27,6 +27,8 @@ Allows you set the default position under the title if you want to.
 Short code option also available if you want to give those options to the users wherever you want them in your content. 
 Recently added the google plus feature too. 
 
+This is a plugin from <a href="http://www.wpfruits.com/?ef=sssl"> WPFRUITS </a>
+
 
 == Installation ==
     Upload the plugin folder to the /wp-content/plugins/ folder of your wordpress installation.
@@ -38,7 +40,7 @@ Recently added the google plus feature too.
 
 For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/wp-sidebar-social-share/
 
-This is a plugin from http://wpfruits.com/?ref=sssl
+
 
 == Frequently asked questions ==
 
