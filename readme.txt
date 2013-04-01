@@ -4,7 +4,7 @@ Donate link: http://www.wpfruits.com
 Tags: sidebar social icons, share sidebar, floating sidebar share icons, responsive share icons, floating share bar
 Requires at least: 2.8
 Tested up to: 3.5
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ Version 1.1.0
 
 Added Google Plus Icon option in admin panel.
 
+Version 1.1.1
+
+Fixed some jquery issues.
 
 
 == Upgrade notice ==

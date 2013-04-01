@@ -50,6 +50,7 @@ function show_responsive_social_share_sidebar(){
 	$tw = $options['show_twitter_icon'];
 	$fb = $options['show_facebook_share'];
 	$fbl= $options['show_facebook_like'];
+	$gp = $options['show_google_plus'];
 	$dg = $options['show_digg_icon'];
 	$st = $options['show_stumble_icon'];
 	$pi = $options['show_pinterest_icon'];
@@ -82,7 +83,7 @@ function show_responsive_social_share_sidebar(){
 			</iframe></div>
 			<div class="clear"></div>';
 		}
-		if(!empty($fbl))
+		if(!empty($gp))
 		{
 		$dtr.='<div class="ss_sidebar_button">
 			<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
@@ -158,7 +159,7 @@ function show_responsive_social_share_sidebar(){
 		<iframe src="http://www.facebook.com/plugins/like.php?href='.urlencode(get_permalink()).'&amp;layout=button_count&amp;show_faces=false&amp;width=60&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden;width:85px;height:21px;" allowTransparency="true">
 		</iframe></span>';
 	}
-	if(!empty($fbl))
+	if(!empty($gp))
 	{
 	$dtr.='<span class="ss_sidebar_button ss_sidebar_facebooklike">
 			<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
@@ -215,6 +216,7 @@ function responsive_social_share_sidebar()
 		$tw = $options['show_twitter_icon'];
 		$fb = $options['show_facebook_share'];
 		$fbl= $options['show_facebook_like'];
+		$gp = $options['show_google_plus'];
 		$dg = $options['show_digg_icon'];
 		$st = $options['show_stumble_icon'];
 		$pi = $options['show_pinterest_icon'];
@@ -244,7 +246,7 @@ function responsive_social_share_sidebar()
 				<iframe src="http://www.facebook.com/plugins/like.php?href='.urlencode(get_permalink()).'&amp;layout=button_count&amp;show_faces=false&amp;width=60&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden;width:85px;height:21px;" allowTransparency="true">
 				</iframe></span>';
 			}
-			if(!empty($fbl))
+			if(!empty($gp))
 			{
 			$dtr.='<span class="ss_sidebar_button ss_sidebar_facebooklike">
 					<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>

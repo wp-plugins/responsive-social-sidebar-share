@@ -4,7 +4,7 @@ Plugin Name: Responsive Social-Share Sidebar
 Plugin URI: http://www.wpfruits.com
 Description: This plugin adds social share sidebar to WordPress post and page.
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.1.0
+Version: 1.1.1
 Author URI: http://www.wpfruits.com
 */
 //--------------------------------------------------------------------------
