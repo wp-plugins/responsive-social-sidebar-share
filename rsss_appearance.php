@@ -79,6 +79,6 @@
 				</div>
 			</div>		
 		</div>
-		<iframe frameborder="1" class="rsss_iframe" src="http://www.sketchthemes.com/sketch-updates/plugin-updates/rsss/rsss.php" width="250px" height="430px" scrolling="no" ></iframe> 	
+		<iframe class="rsss_iframe" src="http://www.sketchthemes.com/sketch-updates/plugin-updates/rsss-lite/rsss-lite.php" width="250px" height="370px" scrolling="no" ></iframe> 
 	</div>	
 </div>	

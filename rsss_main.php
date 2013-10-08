@@ -4,7 +4,7 @@ Plugin Name: Responsive Social-Share Sidebar
 Plugin URI: http://www.wpfruits.com
 Description: This plugin adds social share sidebar to WordPress post and page.
 Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.1.1
+Version: 1.1.2
 Author URI: http://www.wpfruits.com
 */
 //--------------------------------------------------------------------------
@@ -36,11 +36,26 @@ function rsss_main_init(){
 	register_setting('rsss_plugin_options', 'rsss_options', 'rsss_validate_options');
 }
 
-function rsss_plugin_install() {
-    add_option('rsss_options', rsss_defaults());
-}
 // Runs when plugin is activated and creates new database field
 register_activation_hook(__FILE__,'rsss_plugin_install');
+
+add_action('admin_init', 'rsss_plugin_redirect');
+function rsss_plugin_activate() {
+    add_option('rsss_plugin_do_activation_redirect', true);
+}
+
+function rsss_plugin_redirect() {
+    if (get_option('rsss_plugin_do_activation_redirect', false)) {
+        delete_option('rsss_plugin_do_activation_redirect');
+        wp_redirect('admin.php?page=rsss_page');
+    }
+}
+
+function rsss_plugin_install() {
+    add_option('rsss_options', rsss_defaults());
+	rsss_plugin_activate();
+}
+
 
 function rsss_validate_options($rsss_input)
 {
