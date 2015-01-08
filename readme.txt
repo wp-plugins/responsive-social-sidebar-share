@@ -1,5 +1,5 @@
 === Responsive Social Sidebar Share ===
-Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
+Contributors: rahulbrilliant2004, tikendramaitry
 Donate link: http://www.wpfruits.com
 Tags: sidebar social icons, share sidebar, floating sidebar share icons, responsive share icons, floating share bar
 Requires at least: 2.8
