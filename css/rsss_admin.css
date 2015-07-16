@@ -2,7 +2,7 @@
 -------------------------------*/
 .rsssicon{background:url('../images/page_icon.png') no-repeat;margin-right:0;}
 #rsss_block{width:580px;position:relative;}
-#rsss_block .rsss_iframe{border: 1px solid #DFDFDF; border-radius: 2px 2px 2px 2px; left: 590px; padding: 4px; position: absolute; top: 10px;} 	
+#rsss_block .rsss_iframe{border: 1px solid #DFDFDF; border-radius: 2px 2px 2px 2px; left: 776px; padding: 4px; position: absolute; top: 59px;} 	
 #rsss_block .rsss_tbl{}
 #rsss_block .rsss_tbl td{padding:5px;}
 #rsss_block .rsss_tbl td:first-child{width:170px;font-weight: bold;}

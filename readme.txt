@@ -1,10 +1,10 @@
 === Responsive Social Sidebar Share ===
-Contributors: rahulbrilliant2004, tikendramaitry
+Contributors: rahulbrilliant2004, tikendramaitry, gunjan-rai
 Donate link: http://www.wpfruits.com
 Tags: sidebar social icons, share sidebar, floating sidebar share icons, responsive share icons, floating share bar
 Requires at least: 2.8
-Tested up to: 3.6
-Stable tag: 1.1.2
+Tested up to: 4.2.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ This is a plugin from <a href="http://www.wpfruits.com/?ef=sssl"> WPFRUITS </a>
     Activate the plugin. 
     You will see an option at the left bottom of the wordpress options in the left sidebar.
     Click on it to set the options
-    Get going…..
+    Get going.
 
 
 For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/wp-sidebar-social-share/
@@ -51,6 +51,12 @@ For More Details please visit http://www.wpfruits.com/downloads/wp-plugins/wp-si
 
 
 == Changelog ==
+
+Version 1.1.3
+
+Plugin Tested upto WordPress 4.2.2.
+Fixed some jquery issues.
+Added new share icons LinkedIn and Reddit.
 
 
 Version 1.1.2

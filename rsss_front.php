@@ -29,7 +29,7 @@ function rsss_site_sidebar($rsss_title){
 	$rsss_post = $options['showonpost'];
 	$rsss_position = $options['showonposition'];
 	
-	if(($rsss_post&&is_single())||($rsss_page&&is_page())){
+	if(($rsss_post&&is_single())||($rsss_page&&is_page()) || !in_the_loop()){
 		$rss_sidebar = show_responsive_social_share_sidebar();
 	}
 	if($rsss_position == 'shortcode' || !in_the_loop() || !rsss_if_intitle("the_title")){ 
@@ -54,6 +54,8 @@ function show_responsive_social_share_sidebar(){
 	$dg = $options['show_digg_icon'];
 	$st = $options['show_stumble_icon'];
 	$pi = $options['show_pinterest_icon'];
+	$ln = $options['show_linkedin_icon'];
+	$red = $options['show_reddit_icon'];
 	$em = $options['show_email_icon'];
 	$posit = $options['showonposition'];
 	
@@ -61,6 +63,13 @@ function show_responsive_social_share_sidebar(){
 	if(!empty($posit))
 	{
 	$dtr='<div id="rsss_sidebar">';
+		if(!empty($pi))
+		{
+		$dtr.='<div class="ss_sidebar_button pinterest_ss_sidebar">
+			<a href="http://pinterest.com/pin/create/button/?url='.urlencode(get_permalink()).'&description='.get_query_var('name').'" class="pin-it-button" count-layout="vertical">Pin It</a>
+			<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
+			</div><div class="clear"></div>';
+		}
 		if(!empty($tw))
 		{
 		$dtr.='<div class="ss_sidebar_button">
@@ -72,7 +81,7 @@ function show_responsive_social_share_sidebar(){
 		if(!empty($fb))
 		{
 		$dtr.='<div class="ss_sidebar_button facebook_ss_sidebar">
-			<a href="http://www.facebook.com/sharer.php?u='.urlencode(get_permalink()).'&t='.get_query_var('name').'" target="blank"><img src="'.plugins_url('images/fbshare.gif',__FILE__).'" /></a>
+			<a href="http://www.facebook.com/sharer.php?u=http:'.urlencode(get_permalink()).'&t='.get_query_var('name').'" target="blank"><img src="'.plugins_url('images/fbshare.gif',__FILE__).'" /></a>
 			</div>
 			<div class="clear"></div>';
 		}
@@ -91,31 +100,24 @@ function show_responsive_social_share_sidebar(){
 			</div>
 			<div class="clear"></div>';
 		}
-		if(!empty($dg))
-		{
-		$dtr.='<div class="ss_sidebar_button">
-			<script type="text/javascript">(function() { 
-			var s = document.createElement("SCRIPT"), s1 = document.getElementsByTagName("SCRIPT")[0]; 
-			s.type = "text/javascript"; 
-			s.async = true; 
-			s.src = "http://widgets.digg.com/buttons.js"; 
-			s1.parentNode.insertBefore(s, s1); })(); 
-			</script><a class="DiggThisButton DiggMedium"></a>
-			</div>
-			<div class="clear"></div>';
-		}
-		if(!empty($pi))
-		{
-		$dtr.='<div class="ss_sidebar_button">
-			<a href="http://pinterest.com/pin/create/button/?url='.urlencode(get_permalink()).'&description='.get_query_var('name').'" class="pin-it-button" count-layout="vertical">Pin It</a>
-			<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
-			</div>
-			<div class="clear"></div>';
-		}
 		if(!empty($st))
 		{
 		$dtr.='<div class="ss_sidebar_button"><a target="_blank"><script src="http://www.stumbleupon.com/hostedbadge.php?s=5"></script></a></div>
 			<div class="clear"></div>';
+		}
+		if(!empty($dg))
+		{
+		$dtr.='<div class="ss_sidebar_button"><a href="http://www.digg.com/submit?url='.urlencode(get_permalink()).'" target="_blank">
+        <img src="'.plugins_url('images/digg.png',__FILE__).'" alt="Digg" />
+    	</a></div><div class="clear"></div>';
+		}
+		if(!empty($ln))
+		{
+		$dtr.='<div class="ss_sidebar_button"><a href="https://www.linkedin.com/shareArticle?mini=true&url='.urlencode(get_permalink()).'" target="_blank"><img src="'.plugins_url('images/linkedin.png',__FILE__).'" alt="LinkedIn" /></a></div><div class="clear"></div>';
+		}
+		if(!empty($red))
+		{
+		$dtr.='<div class="ss_sidebar_button"><a href="http://reddit.com/submit?url='.urlencode(get_permalink()).'" target="_blank"><img src="'.plugins_url('images/reddit.png',__FILE__).'" alt="Reddit" /></a></div><div class="clear"></div>';
 		}
 		if(!empty($em))
 		{
@@ -140,6 +142,13 @@ function show_responsive_social_share_sidebar(){
 	}
 	$dtr.=';">';
 
+	if(!empty($pi))
+	{
+	$dtr.='<span class="ss_sidebar_button">
+		<a href="http://pinterest.com/pin/create/button/?url='.urlencode(get_permalink()).'&description='.get_query_var('name').'" class="pin-it-button" count-layout="horizontal">Pin It</a>
+		<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
+		</span>';
+	}
 	if(!empty($tw))
 	{
 	$dtr.='<span class="ss_sidebar_button ss_sidebar_twitter">
@@ -161,22 +170,9 @@ function show_responsive_social_share_sidebar(){
 	}
 	if(!empty($gp))
 	{
-	$dtr.='<span class="ss_sidebar_button ss_sidebar_facebooklike">
+	$dtr.='<span class="ss_sidebar_button ">
 			<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 			<g:plusone size="medium" href="'.urlencode(get_permalink()).'"></g:plusone>
-		</span>';
-	}
-	if(!empty($dg))
-	{
-	$dtr.='<span class="ss_sidebar_button">
-		<script type="text/javascript">(function() {
-		var s = document.createElement("SCRIPT"), s1 = document.getElementsByTagName("SCRIPT")[0]; 
-		s.type = "text/javascript";
-		s.async = true;
-		s.src = "http://widgets.digg.com/buttons.js";
-		s1.parentNode.insertBefore(s, s1); })(); 
-		</script>
-		<a class="DiggThisButton DiggCompact"></a>
 		</span>';
 	}
 	if(!empty($st))
@@ -185,12 +181,19 @@ function show_responsive_social_share_sidebar(){
 		<script src="http://www.stumbleupon.com/hostedbadge.php?s=1"></script>
 		</span>';
 	}
-	if(!empty($pi))
+	if(!empty($dg))
 	{
-	$dtr.='<span class="ss_sidebar_button">
-		<a href="http://pinterest.com/pin/create/button/?url='.urlencode(get_permalink()).'&description='.get_query_var('name').'" class="pin-it-button" count-layout="horizontal">Pin It</a>
-		<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
-		</span>';
+	$dtr.='<span class="ss_sidebar_button ss_sidebar_digg"><a href="http://www.digg.com/submit?url='.urlencode(get_permalink()).'" target="_blank">
+    <img src="'.plugins_url('images/digg.png',__FILE__).'" alt="Digg" height="18px"/>
+	</a></span>';
+	}
+	if(!empty($ln))
+	{
+	$dtr.='<span class="ss_sidebar_button ss_sidebar_linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='.urlencode(get_permalink()).'" target="_blank"><img src="'.plugins_url('images/linkedin.png',__FILE__).'" alt="LinkedIn" height="18px"/></a></span>';
+	}
+	if(!empty($red))
+	{
+	$dtr.='<span class="ss_sidebar_button ss_sidebar_reddit"><a href="http://reddit.com/submit?url='.urlencode(get_permalink()).'" target="_blank"><img src="'.plugins_url('images/reddit.png',__FILE__).'" alt="Reddit" height="18px"/></a></span>';
 	}
 	if(!empty($em))
 	{
@@ -221,6 +224,7 @@ function responsive_social_share_sidebar()
 		$st = $options['show_stumble_icon'];
 		$pi = $options['show_pinterest_icon'];
 		$em = $options['show_email_icon'];
+		$ln = $options['show_linkedin_icon'];
 		$posit = $options['showonposition'];
 
 		if($posit=="shortcode")
@@ -253,24 +257,25 @@ function responsive_social_share_sidebar()
 					<g:plusone size="medium" href="'.urlencode(get_permalink()).'"></g:plusone>
 				</span>';
 			}
-			if(!empty($dg))
-			{
-			$dtr.='<span class="ss_sidebar_button">
-				<script type="text/javascript">(function() {
-				var s = document.createElement("SCRIPT"), s1 = document.getElementsByTagName("SCRIPT")[0]; 
-				s.type = "text/javascript";
-				s.async = true;
-				s.src = "http://widgets.digg.com/buttons.js";
-				s1.parentNode.insertBefore(s, s1); })(); 
-				</script>
-				<a class="DiggThisButton DiggCompact"></a>
-				</span>';
-			}
 			if(!empty($st))
 			{
 			$dtr.='<span class="ss_sidebar_button">
 				<script src="http://www.stumbleupon.com/hostedbadge.php?s=1"></script>
 				</span>';
+			}
+			if(!empty($dg))
+			{
+			$dtr.='<span class="ss_sidebar_button ss_sidebar_digg"><a href="http://www.digg.com/submit?url='.urlencode(get_permalink()).'" target="_blank">
+	        <img src="'.plugins_url('images/digg.png',__FILE__).'" alt="Digg" />
+	    	</a></span>';
+			}
+			if(!empty($ln))
+			{
+			$dtr.='<span class="ss_sidebar_button ss_sidebar_linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url='.urlencode(get_permalink()).'" target="_blank"><img src="'.plugins_url('images/linkedin.png',__FILE__).'" alt="LinkedIn" /></a></span>';
+			}
+			if(!empty($red))
+			{
+			$dtr.='<span class="ss_sidebar_button ss_sidebar_reddit"><a href="http://reddit.com/submit?url='.urlencode(get_permalink()).'" target="_blank"><img src="'.plugins_url('images/reddit.png',__FILE__).'" alt="Reddit" /></a></span>';
 			}
 			if(!empty($pi))
 			{

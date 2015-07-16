@@ -68,6 +68,14 @@
 								<td><input type="checkbox" id="show_pinterest_icon" name="rsss_options[show_pinterest_icon]" value="1" <?php if($options['show_pinterest_icon']){ echo "checked=checked"; } ?> /></td>
 							</tr>
 							<tr>
+								<td><label for="show_linkedin_icon"><?php _e('Show LinkedIn Icon','rsss'); ?></label></td>
+								<td><input type="checkbox" id="show_linkedin_icon" name="rsss_options[show_linkedin_icon]" value="1" <?php if($options['show_linkedin_icon']){ echo "checked=checked"; } ?> /></td>
+							</tr>
+							<tr>
+								<td><label for="show_reddit_icon"><?php _e('Show Reddit Icon','rsss'); ?></label></td>
+								<td><input type="checkbox" id="show_reddit_icon" name="rsss_options[show_reddit_icon]" value="1" <?php if($options['show_reddit_icon']){ echo "checked=checked"; } ?> /></td>
+							</tr>
+							<tr>
 								<td><label for="show_email_icon"><?php _e('Show Email Icon','rsss'); ?></label></td>
 								<td><input type="checkbox" id="show_email_icon" name="rsss_options[show_email_icon]" value="1" <?php if($options['show_email_icon']){ echo "checked=checked"; } ?> /></td>
 							</tr>
